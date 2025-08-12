@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – FitForge</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand"><span class="logo">🏋️</span><a href="/index.html">FitForge</a></div>
+      <nav>
+        <a href="/index.html#tools">Tools</a>
+        <a href="/index.html#assess">Assess</a>
+        <a href="/index.html#bodytype">Body Type</a>
+        <a class="cta" href="/products.html">Shop</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Email</h3>
+          <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+        </div>
+        <div class="card">
+          <h3>Message</h3>
+          <form action="https://formspree.io/f/yourFormId" method="POST" class="stack">
+            <label>Your Email<input type="email" name="email" required></label>
+            <label>Message<textarea name="message" rows="5" style="background:#0b1220;border:1px solid rgba(148,163,184,.2);border-radius:10px;padding:10px;color:#e5e7eb"></textarea></label>
+            <button class="btn" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand"><span class="logo">🏋️</span> FitForge</div>
+      <nav>
+        <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
+      <div class="sub"><p class="muted">© <span id="year"></span> FitForge</p></div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
