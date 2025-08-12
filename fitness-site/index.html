@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitForge – Fitness Tools, Guides, and Supplements</title>
+  <meta name="description" content="All-in-one fitness hub: calorie & macro calculator, BMI/body fat checks, body type supplement suggestions, trending fitness topics, and curated affiliate products." />
+  <meta name="keywords" content="fitness, calorie calculator, TDEE, BMI, body fat, supplements, workout, health, HIIT, macros" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:title" content="FitForge – Fitness Tools, Guides, and Supplements" />
+  <meta property="og:description" content="Calculate calories and macros, assess your fitness, learn trending topics, and shop curated supplements." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="https://fav.farm/🏋️" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FitForge",
+    "url": "https://example.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://example.com/articles.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <span class="logo">🏋️</span>
+        <a href="/index.html">FitForge</a>
+      </div>
+      <nav>
+        <a href="#tools">Tools</a>
+        <a href="#assess">Assess</a>
+        <a href="#bodytype">Body Type</a>
+        <a href="/products.html">Shop</a>
+        <a href="/articles.html">Learn</a>
+        <a class="cta" href="#start">Start</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="start" style="--bg:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2000&auto=format&fit=crop');">
+    <div class="overlay"></div>
+    <div class="container hero-inner">
+      <h1>Transform your body with data‑driven tools</h1>
+      <p>Calculate your calories, check body composition, discover your body type, and shop curated supplements.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#tools">Calculate my calories</a>
+        <a class="btn" href="#assess">Check my fitness</a>
+      </div>
+      <div class="trust">
+        <span>💡 No sign‑up required</span>
+        <span>🔒 Your data stays in your browser</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tools">
+    <div class="container">
+      <h2>Smart Fitness Tools</h2>
+      <p class="sub">All calculators run in your browser with evidence-based formulas.</p>
+
+      <div class="grid two">
+        <div class="card">
+          <h3>Calories & Macros</h3>
+          <form id="tdee-form" class="stack" autocomplete="off">
+            <div class="grid three">
+              <label>Age<input type="number" id="age" min="10" max="100" required></label>
+              <label>Sex
+                <select id="sex" required>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </label>
+              <label>Goal
+                <select id="goal" required>
+                  <option value="maintain">Maintain</option>
+                  <option value="lose">Lose Fat</option>
+                  <option value="gain">Gain Muscle</option>
+                </select>
+              </label>
+            </div>
+            <div class="grid three">
+              <label>Height (cm)<input type="number" id="heightCm" min="120" max="230" required></label>
+              <label>Weight (kg)<input type="number" id="weightKg" min="30" max="250" required></label>
+              <label>Activity
+                <select id="activity" required>
+                  <option value="1.2">Sedentary</option>
+                  <option value="1.375">Lightly active</option>
+                  <option value="1.55">Moderately active</option>
+                  <option value="1.725">Very active</option>
+                  <option value="1.9">Athlete</option>
+                </select>
+              </label>
+            </div>
+            <div class="grid two">
+              <label>Body Type
+                <select id="somatotype">
+                  <option value="ecto">Ectomorph</option>
+                  <option value="meso">Mesomorph</option>
+                  <option value="endo">Endomorph</option>
+                </select>
+              </label>
+              <label>Macro Split
+                <select id="macroSplit">
+                  <option value="balanced">Balanced</option>
+                  <option value="highProtein">High Protein</option>
+                  <option value="lowCarb">Lower Carb</option>
+                  <option value="highCarb">Higher Carb</option>
+                </select>
+              </label>
+            </div>
+            <button class="btn primary" type="submit">Calculate</button>
+          </form>
+          <div id="tdee-result" class="result hidden"></div>
+        </div>
+
+        <div class="card">
+          <h3>BMI & Body Fat</h3>
+          <form id="composition-form" class="stack" autocomplete="off">
+            <div class="grid three">
+              <label>Height (cm)<input type="number" id="cHeightCm" min="120" max="230" required></label>
+              <label>Weight (kg)<input type="number" id="cWeightKg" min="30" max="250" required></label>
+              <label>Sex
+                <select id="cSex" required>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </label>
+            </div>
+            <div class="grid three">
+              <label>Neck (cm)<input type="number" id="neckCm" min="20" max="60" required></label>
+              <label>Waist (cm)<input type="number" id="waistCm" min="40" max="160" required></label>
+              <label>Hips (cm – female)<input type="number" id="hipCm" min="60" max="160" placeholder="optional"></label>
+            </div>
+            <button class="btn" type="submit">Compute</button>
+          </form>
+          <div id="composition-result" class="result hidden"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="assess">
+    <div class="container">
+      <h2>Am I Fit?</h2>
+      <p class="sub">Quick health markers that trainers use. Not medical advice.</p>
+      <div class="grid two">
+        <div class="card">
+          <h3>Fitness Markers</h3>
+          <form id="markers-form" class="stack" autocomplete="off">
+            <div class="grid three">
+              <label>Resting HR (bpm)<input type="number" id="rhr" min="35" max="120" required></label>
+              <label>Waist/Height<input type="number" id="wthr" step="0.01" placeholder="auto if height/waist provided"></label>
+              <label>VO₂max (est)<input type="number" id="vo2" min="20" max="80" placeholder="optional"></label>
+            </div>
+            <div class="grid three">
+              <label>Push‑ups (1 min)<input type="number" id="pushups" min="0" max="100" required></label>
+              <label>Plank (sec)<input type="number" id="plank" min="0" max="600" required></label>
+              <label>12‑min Run (m)<input type="number" id="cooper" min="500" max="4000" placeholder="optional"></label>
+            </div>
+            <button class="btn" type="submit">Assess Fitness</button>
+          </form>
+          <div id="markers-result" class="result hidden"></div>
+        </div>
+        <div class="card gradient">
+          <h3>What do you want to know?</h3>
+          <p>Our assistant will guide you. Choose a topic:</p>
+          <div class="chips" id="ask-chips"></div>
+          <div id="ask-output" class="ask-output"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="bodytype">
+    <div class="container">
+      <h2>Body Type & Supplement Guide</h2>
+      <p class="sub">Choose your somatotype to get tailored supplement and nutrition tips.</p>
+      <div class="grid three">
+        <div class="card bodytype" data-type="ecto">
+          <h3>Ectomorph</h3>
+          <p>Lean, finds it hard to gain weight</p>
+          <button class="btn small" data-type="ecto">See suggestions</button>
+          <div class="bodytype-output" id="out-ecto"></div>
+        </div>
+        <div class="card bodytype" data-type="meso">
+          <h3>Mesomorph</h3>
+          <p>Naturally athletic and responsive</p>
+          <button class="btn small" data-type="meso">See suggestions</button>
+          <div class="bodytype-output" id="out-meso"></div>
+        </div>
+        <div class="card bodytype" data-type="endo">
+          <h3>Endomorph</h3>
+          <p>Gain fat easily, focus on satiety & NEAT</p>
+          <button class="btn small" data-type="endo">See suggestions</button>
+          <div class="bodytype-output" id="out-endo"></div>
+        </div>
+      </div>
+      <div class="center mt">
+        <a class="btn primary" href="/products.html">Browse recommended products</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="trending">
+    <div class="container">
+      <h2>Trending Fitness Topics</h2>
+      <div class="grid three">
+        <article class="topic">
+          <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=800&auto=format&fit=crop" alt="HIIT" />
+          <h3>HIIT vs. Zone 2</h3>
+          <p>How to combine high‑intensity intervals with low‑intensity endurance for optimal cardiovascular health.</p>
+          <a href="/articles.html#hiit">Read more</a>
+        </article>
+        <article class="topic">
+          <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?q=80&w=800&auto=format&fit=crop" alt="Protein" />
+          <h3>Protein Timing & Distribution</h3>
+          <p>Hitting 1.6–2.2 g/kg with 3–5 protein feedings can maximize muscle protein synthesis.</p>
+          <a href="/articles.html#protein">Read more</a>
+        </article>
+        <article class="topic">
+          <img src="https://images.unsplash.com/photo-1511735111819-9a3f7709049c?q=80&w=800&auto=format&fit=crop" alt="Sleep" />
+          <h3>Sleep & Recovery</h3>
+          <p>90‑minute cycles, circadian cues, and how sleep debt blunts hypertrophy and fat loss.</p>
+          <a href="/articles.html#sleep">Read more</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner gradient-2">
+    <div class="container banner-inner">
+      <h3>Affiliate Disclosure</h3>
+      <p>Some links are affiliate links. If you buy through them, we may earn a commission at no extra cost to you.</p>
+      <a class="btn" href="/affiliate-disclosure.html">Learn more</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand"><span class="logo">🏋️</span> FitForge</div>
+        <p class="muted">Evidence‑based tools and curated products for better training and health.</p>
+      </div>
+      <nav>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </nav>
+      <div class="sub">
+        <p class="muted">© <span id="year"></span> FitForge. For education only; not medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="chat-launcher" class="chat-launcher">💬</button>
+  <div id="chatbox" class="chatbox hidden">
+    <div class="chatbox-header">
+      <strong>Fit Assistant</strong>
+      <button id="chat-close">✕</button>
+    </div>
+    <div id="chat-messages" class="chat-messages"></div>
+    <form id="chat-form" class="chat-input">
+      <input id="chat-field" type="text" placeholder="Ask anything about your body & fitness…" />
+      <button class="btn small" type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="/calculators.js"></script>
+  <script src="/supplements.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
